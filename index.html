@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="desktop">
+        <div class="app-window" id="calculator-app" style="display: none;">
+            <div class="app-header" onmousedown="startDrag(event, 'calculator-app')">
+                <span>Calculator</span>
+                <button onclick="closeApp('calculator-app')">X</button>
+            </div>
+            <div class="calculator-body">
+                <input type="text" id="calc-display" readonly>
+                <div class="calc-buttons">
+                    <button onclick="addToCalcDisplay('7')">7</button>
+                    <button onclick="addToCalcDisplay('8')">8</button>
+                    <button onclick="addToCalcDisplay('9')">9</button>
+                    <button onclick="addToCalcDisplay('/')">/</button>
+                    <button onclick="addToCalcDisplay('4')">4</button>
+                    <button onclick="addToCalcDisplay('5')">5</button>
+                    <button onclick="addToCalcDisplay('6')">6</button>
+                    <button onclick="addToCalcDisplay('*')">*</button>
+                    <button onclick="addToCalcDisplay('1')">1</button>
+                    <button onclick="addToCalcDisplay('2')">2</button>
+                    <button onclick="addToCalcDisplay('3')">3</button>
+                    <button onclick="addToCalcDisplay('-')">-</button>
+                    <button onclick="addToCalcDisplay('0')">0</button>
+                    <button onclick="addToCalcDisplay('.')">.</button>
+                    <button onclick="calculateResult()">=</button>
+                    <button onclick="addToCalcDisplay('+')">+</button>
+                    <button onclick="clearCalcDisplay()">C</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-window" id="app-store" style="display: none;">
+            <div class="app-header" onmousedown="startDrag(event, 'app-store')">
+                <span>App Store</span>
+                <button onclick="closeApp('app-store')">X</button>
+            </div>
+            <div class="app-store-body">
+                <h3>Available Apps</h3>
+                <div id="app-list">
+                    <div class="app-item">
+                        <span>Calculator</span>
+                        <button onclick="installApp('calculator')">Install</button>
+                        <span class="status" id="calc-status"></span>
+                    </div>
+                    <div class="app-item">
+                        <span>YouTube</span>
+                        <button onclick="installApp('youtube')">Install</button>
+                        <span class="status" id="youtube-status"></span>
+                    </div>
+                    <div class="app-item">
+                        <span>Gmail</span>
+                        <button onclick="installApp('gmail')">Install</button>
+                        <span class="status" id="gmail-status"></span>
+                    </div>
+                    <div class="app-item">
+                        <span>Google Translate</span>
+                        <button onclick="installApp('google-translate')">Install</button>
+                        <span class="status" id="google-translate-status"></span>
+                    </div>
+                    <div class="app-item">
+                        <span>Torrent Game</span>
+                        <button onclick="installApp('torrent-game')">Install</button>
+                        <span class="status" id="torrent-game-status"></span>
+                    </div>
+                </div>
+                <button onclick="refreshApps()">Refresh Apps</button> <!-- Кнопка обновления -->
+            </div>
+        </div>
+    </div>
+
+    <div class="taskbar">
+        <button id="calculator-menu" onclick="openApp('calculator-app')" style="display: none;">Calculator</button>
+        <button id="youtube-menu" onclick="openYouTube()" style="display: none;">YouTube</button>
+        <button id="gmail-menu" onclick="openGmail()" style="display: none;">Gmail</button>
+        <button id="google-translate-menu" onclick="openGoogleTranslate()" style="display: none;">Google Translate</button>
+        <button id="torrent-game-menu" onclick="openTorrentGame()" style="display: none;">Torrent Game</button>
+        <button onclick="openAppStore()">App Store</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
